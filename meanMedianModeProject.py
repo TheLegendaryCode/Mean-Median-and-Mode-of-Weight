@@ -6,7 +6,7 @@ with open("SOCR-HeightWeight.csv",newline="") as d:
 data.pop(0)
 newData=[]
 for i in range(len(data)):
-    n=data[i][2]
+    n=data[i][2] #Here 2 stands for the third row
     newData.append(float(n))
 num=len(newData)
 
@@ -35,17 +35,39 @@ print(median)
 
 d=Counter(newData)
 rangeForMode={
-    "50-60":0,
-    "60-70":0,
-    "70-80":0
+    "75-85":0,
+    "85-95":0,
+    "95-105":0,
+    "105-115":0,
+    "115-125":0,
+    "125-135":0,
+    "135-145":0,
+    "145-155":0,
+    "155-165":0,
+    "165-175":0,
 }
-for h,o in d.items():
-    if 50<float(h)<60:
-        rangeForMode["50-60"]+=o
-    elif 60<float(h)<70:
-        rangeForMode["60-70"]+=o
-    elif 70<float(h)<80:
-        rangeForMode["70-80"]+=o
+for w,o in d.items():
+    if 75<float(w)<85:
+        rangeForMode["75-85"]+=o
+    elif 85<float(w)<95:
+        rangeForMode["85-95"]+=o
+    elif 95<float(w)<105:
+        rangeForMode["95-105"]+=o
+    elif 105<float(w)<115:
+        rangeForMode["105-115"]+=o
+    elif 115<float(w)<125:
+        rangeForMode["115-125"]+=o
+    elif 125<float(w)<135:
+        rangeForMode["125-135"]+=o
+    elif 135<float(w)<145:
+        rangeForMode["135-145"]+=o
+    elif 145<float(w)<155:
+        rangeForMode["145-155"]+=o
+    elif 155<float(w)<165:
+        rangeForMode["155-165"]+=o
+    elif 165<float(w)<175:
+        rangeForMode["165-175"]+=o
+
 modeRange,modeOcc=0,0
 for range,occ in rangeForMode.items():
     if occ>modeOcc:
